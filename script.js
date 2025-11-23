@@ -1,6 +1,6 @@
 // Menu data (12 items)
 const menuData = [
-  {id:1,name:'Margherita Pizza',desc:'Classic cheese & basil',price:299,tag:'pizza',img:'https://cookingitalians.com/wp-content/uploads/2024/11/Margherita-Pizza.jpg'},
+  {id:1,name:'Margherita Pizza',desc:'Classic cheese & basil',price:299,tag:'pizza',img:'http://127.0.0.1:5501/magpizza.jpeg'},
   {id:2,name:'Pepperoni Pizza',desc:'Pepperoni & mozzarella',price:399,tag:'pizza',img:'https://th.bing.com/th/id/OSK.1e5a9f78f2c2df2dcfc45b81a3b077fd?w=200&h=126&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.3&pid=16.1'},
   {id:3,name:'Veg Burger',desc:'Patty, lettuce, tomato',price:199,tag:'burgers',img:'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=60'},
   {id:4,name:'Chicken Burger',desc:'Crispy chicken & sauce',price:249,tag:'burgers',img:'https://th.bing.com/th/id/OSK.581d09f1d1d576171a3a1099b007151c?w=200&h=126&c=7&rs=1&qlt=80&o=6&cdv=1&dpr=1.3&pid=16.1'},
@@ -259,6 +259,7 @@ document.getElementById('searchInput').addEventListener('input',(e)=>{
     m.tag.toLowerCase().includes(q)
   ));
 });
+
 
 
 
