@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Restaurant</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="root">
+
+  </div>
+  <script type="module" src="/main.jsx"></script>
+
+
+
+  <header>
+    <div class="brand">
+      <div class="logo">QR</div>
+      <div>
+        <div style="font-weight:700">Fine Dine</div>
+        <div style="font-size:12px;color:var(--muted)">Fresh • Fast • Flavorful</div>
+      </div>
+    </div>
+
+    <div class="search"><input id="searchInput" placeholder="Search items or tags..." /></div>
+
+    <div class="controls">
+      <div id="orderStatusMini" style="font-size:13px;color:var(--muted)">No active order</div>
+      <div class="cart-btn" id="cartBtn" title="Open cart">
+        🛒 <span id="cartText">Cart</span>
+        <div id="cartBadge" class="cart-badge" style="display:none">+0</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="layout">
+      <section>
+  <h2 style="margin:6px 0 12px 0">Menu</h2>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+    <button onclick="filter('all')">All</button>
+    <button onclick="filter('pizza')">Pizza</button>
+    <button onclick="filter('burgers')">Burgers</button>
+    <button onclick="filter('pasta')">Pasta</button>
+    <button onclick="filter('rolls')">Rolls</button>
+    <button onclick="filter('fries')">Fries</button>
+  </div>
+
+  <div class="menu" id="menuGrid">
+    <div class="menu-grid">
+
+  <!-- 1. Margherita Pizza -->
+  <div class="item">
+    <img src="" alt="Margherita Pizza">
+    <h3>Margherita Pizza</h3>
+    <p>₹299</p>
+  </div>
+
+  <!-- 2. Farmhouse Pizza -->
+  <div class="item">
+    <img src="images/farmhouse.jpg" alt="Farmhouse Pizza">
+    <h3>Farmhouse Pizza</h3>
+    <p>₹349</p>
+  </div>
+
+  <!-- 3. Chicken Pizza -->
+  <div class="item">
+    <img src="images/chicken-pizza.jpg" alt="Chicken Pizza">
+    <h3>Chicken Pizza</h3>
+    <p>₹399</p>
+  </div>
+
+  <!-- 4. Classic Burger -->
+  <div class="item">
+    <img src="images/burger.jpg" alt="Classic Burger">
+    <h3>Classic Burger</h3>
+    <p>₹159</p>
+  </div>
+
+  <!-- 5. Chicken Burger -->
+  <div class="item">
+    <img src="images/chicken-burger.jpg" alt="Chicken Burger">
+    <h3>Chicken Burger</h3>
+    <p>₹199</p>
+  </div>
+
+  <!-- 6. Veg Sandwich -->
+  <div class="item">
+    <img src="images/sandwich.jpg" alt="Veg Sandwich">
+    <h3>Veg Sandwich</h3>
+    <p>₹119</p>
+  </div>
+
+  <!-- 7. Chicken Sandwich -->
+  <div class="item">
+    <img src="images/chicken-sandwich.jpg" alt="Chicken Sandwich">
+    <h3>Chicken Sandwich</h3>
+    <p>₹149</p>
+  </div>
+
+  <!-- 8. White Sauce Pasta -->
+  <div class="item">
+    <img src="images/white-pasta.jpg" alt="White Sauce Pasta">
+    <h3>White Sauce Pasta</h3>
+    <p>₹249</p>
+  </div>
+
+  <!-- 9. Red Sauce Pasta -->
+  <div class="item">
+    <img src="images/red-pasta.jpg" alt="Red Sauce Pasta">
+    <h3>Red Sauce Pasta</h3>
+    <p>₹239</p>
+  </div>
+
+  <!-- 10. Chicken Roll -->
+  <div class="item">
+    <img src="images/chicken-roll.jpg" alt="Chicken Roll">
+    <h3>Chicken Roll</h3>
+    <p>₹149</p>
+  </div>
+
+  <!-- 11. Veg Roll -->
+  <div class="item">
+    <img src="images/veg-roll.jpg" alt="Veg Roll">
+    <h3>Veg Roll</h3>
+    <p>₹119</p>
+  </div>
+
+  <!-- 12. French Fries -->
+  <div class="item">
+    <img src="images/fries.jpg" alt="French Fries">
+    <h3>French Fries</h3>
+    <p>₹99</p>
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- ⭐ NEW IMAGE BELOW MENU GRID ⭐ -->
+  <div class="menu-image-box">
+    <img src="qr 5thsem.png" class="menu-extra-img" alt="Below Menu Banner">
+  </div>
+  <!-- ⭐ END NEW IMAGE ⭐ -->
+</section>
+
+      <aside>
+        <div class="cart" id="cartPanel">
+          <h3>Your Cart</h3>
+          <div class="cart-list" id="cartList">
+            <div class="empty">Cart is empty. Add items to get started.</div>
+          </div>
+
+          <div class="cart-footer">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <strong>Total</strong><strong id="cartTotal">₹0</strong>
+            </div>
+            <button id="checkoutBtn" class="checkout-btn" onclick="checkout()" disabled>Checkout</button>
+          </div>
+
+          <div class="status" id="liveStatus">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <strong>Order Status</strong><small id="statusTiny">No active order</small>
+            </div>
+
+            <div class="progress" style="margin-top:8px">
+              <div class="step" id="s1">Received</div>
+              <div class="step" id="s2">Preparing</div>
+              <div class="step" id="s3">Out for delivery</div>
+              <div class="step" id="s4">Delivered</div>
+            </div>
+
+            <div class="order-id" id="orderIdText">—</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>.</footer>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
